@@ -1,0 +1,4 @@
+<%= tag.div do %>
+  <%= tag.h1 "Create a Proposal", class:"font-bold text-4xl" %>
+  <%= render partial: 'form', locals: { proposal: @proposal } %>
+<% end %>

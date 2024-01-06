@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  begins: 2024-01-03
+  start_week: 1
+  plan: one
+  challenge_session: one
+
+two:
+  begins: 2024-01-03
+  start_week: 1
+  plan: two
+  challenge_session: two

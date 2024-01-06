@@ -1,0 +1,12 @@
+<%= form_with model: proposal, data: { controller: 'proposal-form'} do |form| %>
+  <template data-proposal-form-target="template">
+    <%= form.fields_for :days, Day.new, child_index: 'NEW_RECORD' do |day_fields| %>
+      <%= render partial: "day_form", locals: { day: day_fields } %>
+    <% end %>
+  </template>
+  <%= form.select :begins, options_for_select([0,7,14,21,28,35].map { |i| [Date.today.next_occurring(:monday) + i, i] }) %>
+  <%= form.select :start_week, options_for_select(Proposal::WEEKS.map { |week| ["Week #{week}", week] }) %>
+  <%= form.select :plan_id, options_for_select(Plan.all.collect { |p| [ p.name, p.id ] }) %>
+  <%= form.select :challenge_session_id, options_for_select(ChallengeSession.all.collect { |cs| [cs.name, cs.id] }) %>
+  <%= form.submit "Generate" %>
+<% end %>
